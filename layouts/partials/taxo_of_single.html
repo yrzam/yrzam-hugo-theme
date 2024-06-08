@@ -1,0 +1,12 @@
+{{- range $taxonomy, $_ := .Site.Taxonomies -}}
+  {{- if $.GetTerms $taxonomy -}}
+    <nav class="taxo-list">
+      {{- with $.GetTerms $taxonomy -}}
+        {{- range . -}}
+          <a class="button" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        {{- end -}}
+      {{- end -}}
+    </nav>
+  {{- end -}}
+{{- end -}}
+{{- /**/ -}}

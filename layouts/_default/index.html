@@ -1,0 +1,42 @@
+{{ define "body" }}
+  <div class="home-layout-container">
+    <div class="content home">
+      <div class="about-container">
+        <div class="about-block">
+          <div class="image-container">
+            <img
+              src="{{ .Params.image.link }}"
+              {{ print "style" "=" "\"" "aspect-ratio:" .Params.image.ratio "\""  | safeHTMLAttr }}
+            />
+          </div>
+          <div class="info-container">
+            <h1>{{ .Title }}</h1>
+            <p>{{ .Description }}</p>
+            <div class="pgp">
+              <a href="{{ .Params.pgp.link }}" class="icon-a-wrapper">{{ partial "icon.html" "solid/download" }}</a>
+              <span class="text">{{ .Params.pgp.fingerprint }}</span>
+            </div>
+            <div class="links">
+              {{- range .Params.contacts -}}
+                <a href="{{ .link }}" class="icon-a-wrapper">{{- partial "icon.html" .icon -}}{{- print "" -}}</a>
+              {{- end -}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-container">
+        <div class="bottom-block">
+          <div class="section-list">
+            {{- range .Params.sections -}}
+              <a href="{{ .link }}" class="section-item">
+                {{ partial "icon.html" .icon }}
+                <span class="label">{{ .name }}</span>
+              </a>
+            {{- end -}}
+          </div>
+          <div class="notice">{{ .Params.notice }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{ end }}

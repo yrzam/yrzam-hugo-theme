@@ -1,0 +1,182 @@
+/*
+	Classic view: header, main and footer block. Aside column is possible.
+	Details depend on section.
+*/
+.classic-layout-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  header,
+  footer {
+    padding: $base-margin-y $base-margin-x;
+    .content {
+      max-width: $base-width;
+      margin: 0 auto;
+    }
+  }
+  header {
+    background: linear-gradient(
+      135deg,
+      $bg-accent-color-light 0%,
+      $bg-accent-color-dark 100%
+    );
+    .content {
+      & > :last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+  main {
+    flex: 1 0 auto;
+  }
+  footer {
+    flex-shrink: 0;
+    .content {
+      text-align: center;
+    }
+  }
+}
+
+/* section specific - list of classic */
+.classic-layout-container main .content.list {
+  padding: $base-margin-y $base-margin-x;
+  .main-container {
+    .list-container {
+      max-width: $base-width;
+      margin: 0 auto;
+      ul {
+        padding-left: 1rem;
+      }
+      .list-item-container {
+        margin: 0.2rem 0;
+        .list-item-a-wrapper {
+          text-decoration: none;
+          .list-item {
+            display: inline-block;
+            vertical-align: middle;
+            padding: 0.5rem 0 0.5rem 0.5rem;
+            line-height: 1.5;
+            .summary,
+            .pub-date {
+              color: $fg-color-dark;
+            }
+            .title {
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+    .paginator {
+      margin: $base-margin-y 0 0 0;
+    }
+  }
+}
+
+/* section specific - single of classic */
+.classic-layout-container header .content.post {
+  .pub-date {
+    color: $fg-color-semitransp;
+    margin: 1em 0;
+  }
+}
+.classic-layout-container main .content.post {
+  .nav-block {
+    .toc-title {
+      text-align: center;
+      margin-top: $base-margin-y;
+    }
+    nav {
+      overflow-wrap: break-word;
+      overflow-y: auto;
+      ul {
+        padding: 0 0 0 1rem; // 1rem is the browser defined bullet offset
+      }
+    }
+  }
+  .main-container {
+    margin: $base-margin-y $base-margin-x;
+  }
+}
+@mixin media--classic-main-content-post_1col {
+  .classic-layout-container main .content.post {
+    .nav-block {
+      nav {
+        max-height: 50vh;
+        background-color: $bg-accent-color-dark;
+        padding: $base-margin-y $base-margin-x;
+        border: 2px solid $bg-accent-color-light;
+      }
+    }
+    .main-container {
+      margin: $base-margin-y * 2 $base-margin-x $base-margin-y $base-margin-x;
+    }
+  }
+}
+@mixin media--classic-main-content-post_2col {
+  .classic-layout-container main .content.post {
+    display: flex;
+    .aside-container {
+      display: flex;
+      .nav-block {
+        margin: $base-margin-y 0 0 $base-margin-x;
+        max-width: 20.5rem;
+        min-width: 0;
+        nav {
+          padding: 0.5rem 0.5rem 0.5rem 0;
+          position: sticky;
+          top: 0;
+          max-height: 100vh;
+          scrollbar-width: thin;
+          &,
+          a {
+            color: $fg-color-dark;
+          }
+          a:hover {
+            color: $fg-color;
+          }
+        }
+        scrollbar-color: transparent transparent;
+        &:hover {
+          scrollbar-color: rgba($fg-color-dark, 0.6) transparent;
+        }
+      }
+    }
+    .main-container {
+      margin: $base-margin-y $base-margin-x;
+      article {
+        max-width: $base-width;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+@mixin media--classic-main-content-post-2col_narrow {
+  .classic-layout-container main .content.post {
+    .aside-container {
+      min-width: 0;
+      flex: 0 1 auto;
+    }
+    .main-container {
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+  }
+}
+@mixin media--classic-main-content-post-2col_wide {
+  .classic-layout-container main .content.post {
+    &::after {
+      content: "";
+      min-width: 0;
+      flex: 1;
+    }
+    .aside-container {
+      min-width: 0;
+      flex: 1;
+    }
+    .main-container {
+      min-width: 0;
+      flex: 0 1 $base-width;
+    }
+  }
+}

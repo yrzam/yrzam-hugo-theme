@@ -1,0 +1,40 @@
+{{- define "header" -}}
+  <div class="content">
+    {{ partial "page_path.html" . }}
+    {{ if .Title }}<h1>{{ .Title }}</h1>{{ end }}
+    {{ partial "taxo_of_list.html" . }}
+  </div>
+{{- end -}}
+
+{{- define "main" -}}
+  <div class="content list">
+    <div class="main-container">
+      <nav class="list-container">
+        <ul>
+          {{ range .Paginator.Pages }}
+            <li class="list-item-container">
+              <a href="{{ .RelPermalink }}" class="list-item-a-wrapper">
+                <div class="list-item">
+                  <div class="line-1">
+                    <span class="pub-date">[{{ .PublishDate.Format .Site.Params.dateFormatShort }}]</span>
+                    <span class="title">{{ .Title }}</span>
+                  </div>
+                  <div class="summary">
+                    {{ .Description }}
+                  </div>
+                </div>
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      </nav>
+      {{ partial "pagination.html" . }}
+    </div>
+  </div>
+{{- end -}}
+
+{{ define "footer" }}
+  <!--div class="content">
+    <a href="">subscribe</a>
+  </div-->
+{{ end }}

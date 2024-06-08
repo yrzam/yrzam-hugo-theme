@@ -1,0 +1,57 @@
+{{- if gt $.Paginator.TotalPages 1 -}}
+  <nav class="paginator">
+    {{- $pag := .Paginator -}}
+    {{- $adjacent_links := default 2 .Site.Params.paginationAdjacentLinks -}}
+
+    {{- $padded_adjacent_links := add $adjacent_links 2 -}}
+    {{- $dynamic_range_start := sub $pag.PageNumber $padded_adjacent_links -}}
+    {{- $dynamic_range_end := add $pag.PageNumber $padded_adjacent_links -}}
+    {{- if gt $dynamic_range_end $pag.TotalPages -}}
+      {{- $dynamic_range_start = sub $dynamic_range_start (sub $dynamic_range_end $pag.TotalPages) -}}
+    {{- end -}}
+    {{- if lt $dynamic_range_start 1 -}}
+      {{- $dynamic_range_end = add $dynamic_range_end (sub 1 $dynamic_range_start) -}}
+    {{- end -}}
+    {{- $dynamic_range_start = add $dynamic_range_start (math.Min $dynamic_range_start 2) -}}
+    {{- $dynamic_range_end = sub $dynamic_range_end (math.Min (sub $pag.TotalPages $dynamic_range_end -1) 2 ) -}}
+
+
+    <!-- static start (if needed) -->
+    {{- if ge $dynamic_range_start 2 -}}
+      <a href="{{ $pag.First.URL }}" class="button">1</a>
+      {{- if eq $dynamic_range_start 3 -}}
+        <a href="{{ (index $pag.Pagers 2).URL }}" class="button">2</a>
+      {{- end -}}
+      {{- if gt $dynamic_range_start 3 -}}
+        {{- $mid := div (add $dynamic_range_start 1) 2 | math.Floor | int -}}
+        <a href="{{ (index $pag.Pagers (sub $mid 1)).URL }}" class="button">...</a>
+      {{- end -}}
+    {{- end -}}
+
+
+    <!-- dynamic range - show neighbours -->
+    {{- range $pag.Pagers -}}
+      {{- if and (ge .PageNumber $dynamic_range_start) (le .PageNumber $dynamic_range_end) -}}
+        {{- if eq . $pag -}}
+          <span class="button current">{{ .PageNumber }}</span>
+        {{- else -}}
+          <a href="{{ .URL }}" class="button">{{ .PageNumber }}</a>
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+
+
+    <!-- static end (if needed) -->
+    {{- if ge (sub $pag.TotalPages $dynamic_range_end) 1 -}}
+      {{- if eq (sub $pag.TotalPages $dynamic_range_end) 2 -}}
+        <a href="{{ (index $pag.Pagers (sub $pag.TotalPages 1)).URL }}" class="button">ye</a>
+      {{- end -}}
+      {{- if gt (sub $pag.TotalPages $dynamic_range_end) 2 -}}
+        {{- $mid := div (add $pag.TotalPages $dynamic_range_end) 2 | math.Ceil | int -}}
+        <a href="{{ (index $pag.Pagers (sub $mid 1)).URL }}" class="button">...</a>
+      {{- end -}}
+      <a href="{{ $pag.Last.URL }}" class="button">{{ $pag.TotalPages }}</a>
+    {{- end -}}
+  </nav>
+{{- end -}}
+{{- /**/ -}}

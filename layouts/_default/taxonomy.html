@@ -1,0 +1,33 @@
+{{- define "header" -}}
+  <div class="content">
+    {{ partial "page_path.html" . }}
+    <h1>{{ ($.Site.GetPage (replaceRE "/.*?$" "" .Data.Plural )).Title }}: {{ .Title }}</h1>
+  </div>
+{{- end -}}
+
+{{- define "main" -}}
+  <div class="content list">
+    <div class="main-container">
+      <nav class="list-container">
+        <ul>
+          {{ range .Paginator.Pages }}
+            <li class="list-item-container">
+              <a href="{{ .RelPermalink }}" class="list-item-a-wrapper">
+                <div class="list-item">
+                  <div class="line-1">
+                    <span class="pub-date">[{{ .PublishDate.Format .Site.Params.dateFormatShort }}]</span>
+                    <span class="title">{{ .Title }}</span>
+                  </div>
+                  <div class="summary">
+                    {{ .Description }}
+                  </div>
+                </div>
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      </nav>
+      {{ partial "pagination.html" . }}
+    </div>
+  </div>
+{{- end -}}

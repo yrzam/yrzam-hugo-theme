@@ -1,0 +1,16 @@
+<nav class="page-path">
+  {{- range .Ancestors.Reverse -}}
+    {{- if  compare.Ne .Kind "taxonomy" -}}
+      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    {{- else -}}
+      {{- .LinkTitle -}}
+    {{- end -}}
+    &nbsp;/&nbsp;
+  {{- end -}}
+  {{- if  compare.Ne .Kind "404" -}}
+    {{- .LinkTitle -}}
+  {{- else -}}
+    ???
+  {{- end -}}
+</nav>
+{{- /**/ -}}

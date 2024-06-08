@@ -1,0 +1,37 @@
+{{- define "header" -}}
+  <div class="content post">
+    {{ partial "page_path.html" . }}
+    {{ if .Title }}<h1>{{ .Title }}</h1>{{ end }}
+    {{ if .Description }}<p>{{ .Description }}</p>{{ end }}
+    {{ partial "taxo_of_single.html" . }}
+    <div class="pub-date">
+      mtime={{ .Lastmod.Format .Site.Params.dateFormat }}
+      archived={{ default false .Params.archived }}
+    </div>
+  </div>
+{{- end -}}
+
+{{- define "main" -}}
+  <div class="content post">
+    <div class="aside-container">
+      {{ if .Param "toc" }}
+        <div class="nav-block">
+          <h3 class="toc-title">TABLE OF CONTENTS</h3>
+          {{ .TableOfContents }}
+        </div>
+      {{ end }}
+    </div>
+    <div class="main-container">
+      <article>
+        {{ .Content }}
+      </article>
+    </div>
+  </div>
+{{- end -}}
+
+{{- define "footer" -}}
+  <!--div class="content post">
+    <a href="">download</a> |
+    <a href="{{ relURL "/verification/" }}">verify</a>
+  </div-->
+{{- end -}}

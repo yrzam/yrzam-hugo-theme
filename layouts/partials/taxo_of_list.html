@@ -1,0 +1,10 @@
+{{- range $taxonomy, $term_set := .Site.Taxonomies -}}
+  {{- if hasPrefix $taxonomy (replaceRE "^/" "" $.Page.RelPermalink) -}}
+    <nav class="taxo-list">
+      {{ range $term_set }}
+        <a class="button" href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a>
+      {{- end -}}
+    </nav>
+  {{- end -}}
+{{- end -}}
+{{- /**/ -}}
