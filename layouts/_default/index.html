@@ -13,8 +13,12 @@
             <h1>{{ .Title }}</h1>
             <p>{{ .Description }}</p>
             <div class="pgp">
-              <a href="{{ .Params.pgp.link }}" class="icon-a-wrapper">{{ partial "icon.html" "solid/download" }}</a>
-              <span class="text">{{ .Params.pgp.fingerprint }}</span>
+              <a href="{{ .Params.pgp.link }}" class="icon-a-wrapper">{{ partial "icon.html" "solid/download" }}</a
+              ><span class="text">
+                {{- range (split .Params.pgp.fingerprint " ") -}}
+                  <span class="spaced">{{ . }}</span><wbr />
+                {{- end -}}
+              </span>
             </div>
             <div class="links">
               {{- range .Params.contacts -}}

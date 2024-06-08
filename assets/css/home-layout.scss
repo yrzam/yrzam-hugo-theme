@@ -53,6 +53,10 @@
       }
       .text {
         color: $fg-color-dark;
+        margin-right: -0.2rem;
+        .spaced {
+          margin-right: 0.2rem;
+        }
       }
     }
     .links {

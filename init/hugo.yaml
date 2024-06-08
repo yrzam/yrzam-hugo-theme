@@ -21,4 +21,4 @@ capitalizeListTitles: false
 disableHugoGeneratorInject: true
 disableKinds: [RSS, sitemap, taxonomy]
 minify:
-  minifyOutput: false
+  minifyOutput: true
