@@ -34,7 +34,9 @@
 {{- end -}}
 
 {{ define "footer" }}
-  <!--div class="content">
-    <a href="">subscribe</a>
-  </div-->
+  <div class="content">
+    {{ with .OutputFormats.Get "rss" -}}
+      {{ printf `<a rel="%s" href="%s">subscribe</a>` .Rel .Permalink  | safeHTML }}
+    {{ end -}}
+  </div>
 {{ end }}

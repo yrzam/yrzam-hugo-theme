@@ -1,6 +1,6 @@
 theme: yrzam
 
-# SITE INFO
+# SITE SETTINGS
 baseURL:
 title:
 languageCode:
@@ -8,9 +8,8 @@ taxonomies:
   # Create these per each section&taxo, replacing section
   # with section name and taxo with taxonomy name
   section_taxo: section/taxo
-
-# SITE SETTINGS
 params:
+  email:
   dateFormat: "2006-01-02T15:04:05Z"
   dateFormatShort: "2006-01-02"
   paginationAdjacentLinks: 2
@@ -19,6 +18,14 @@ paginate: 50
 # GENERATOR SETTINGS
 capitalizeListTitles: false
 disableHugoGeneratorInject: true
-disableKinds: [RSS, sitemap, taxonomy]
+disableKinds: [sitemap]
+outputs:
+  home: [html]
+  section: [html, rss]
+  taxonomy: []
+  term: [html]
+outputFormats:
+  RSS:
+    baseName: rss
 minify:
   minifyOutput: true
