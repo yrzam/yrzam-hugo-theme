@@ -15,6 +15,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>{{ .Site.Title }}{{ if not .IsHome }}: {{ .LinkTitle | humanize }}{{ end }}</title>
+	<description>{{ if not .IsHome }}{{ .Title }} on {{ end }}{{ .Site.Title }}</description>
     <link>{{ .Permalink }}</link>
     <language>{{ site.Language.LanguageCode }}</language>{{ if site.Params.email }}
 	<managingEditor>{{ site.Params.email }}</managingEditor>{{ end }}
