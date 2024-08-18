@@ -33,8 +33,7 @@
           <div class="section-list">
             {{- range .Params.sections -}}
               <a href="{{ .link }}" class="section-item">
-                {{ partial "icon.html" .icon }}
-                <span class="label">{{ .name }}</span>
+                {{ partial "icon.html" .icon }}<span class="label">{{ .name }}</span>
               </a>
             {{- end -}}
           </div>
