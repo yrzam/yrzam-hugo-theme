@@ -120,11 +120,11 @@
     .aside-container {
       display: flex;
       .nav-block {
-        margin: $base-margin-y 0 0 $base-margin-x;
+        margin: $base-margin-y $base-margin-x 0 $base-margin-x;
         max-width: 20.5rem;
         min-width: 0;
         nav {
-          padding: 0.5rem 0.5rem 0.5rem 0;
+          padding: 0.5rem 0;
           position: sticky;
           top: 0;
           max-height: 100vh;

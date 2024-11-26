@@ -8,7 +8,7 @@ image:
 pgp:
   fingerprint:
   link:
-contacts:
+links:
   - link:
     icon:
   # ...

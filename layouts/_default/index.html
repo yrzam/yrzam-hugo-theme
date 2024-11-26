@@ -21,8 +21,8 @@
               </span>
             </div>
             <div class="links">
-              {{- range .Params.contacts -}}
-                <a href="{{ .link }}" class="icon-a-wrapper">{{- partial "icon.html" .icon -}}{{- print "" -}}</a>
+              {{- range .Params.links -}}
+                <a href="{{ .link | safeURL }}" class="icon-a-wrapper">{{- partial "icon.html" .icon -}}{{- print "" -}}</a>
               {{- end -}}
             </div>
           </div>

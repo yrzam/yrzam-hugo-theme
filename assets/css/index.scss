@@ -93,6 +93,7 @@ p {
   display: inline-block;
   .icon {
     display: block;
+    text-align: center;
   }
 }
 
@@ -110,7 +111,7 @@ article {
     overflow-x: auto;
     padding: 1rem;
     font-size: 0.875rem;
-    border: 1px solid $bg-accent-color-light;
+    border: 1px solid rgba($bg-accent-color-light,0.6);
     margin: 1em 0;
     scrollbar-color: rgba($fg-accent-color, 0.2) transparent;
     &:hover {
@@ -118,11 +119,14 @@ article {
     }
     transition: 0.1s all;
   }
-  h2 code,
-  p code,
-  li code {
-    color: $fg-accent-color;
-    font-weight: bold;
+  h2 > code,
+  p > code,
+  li > code {
+    background: $bg-accent-color-dark;
+    padding: 0.1rem 0.25rem;
+    font-size: 0.875rem;
+    border: 1px solid rgba($bg-accent-color-light,0.6);
+    border-radius: 0.25rem;
   }
   p img,
   li img {
@@ -179,7 +183,7 @@ article {
   }
 }
 $base-width-with-margin: $base-width + $base-margin-x * 2;
-$post-2col-nav-block-max-width: 20.5rem + 1rem + 0.5rem;
+$post-2col-nav-block-max-width: 20.5rem + 1rem * 2;
 @include screen-w("less", 35rem + $base-margin-x * 2) {
   @include media--home-content-about_vert_top();
 }
@@ -196,13 +200,13 @@ $post-2col-nav-block-max-width: 20.5rem + 1rem + 0.5rem;
 @include screen-w(
   "between",
   $base-width-with-margin,
-  $base-width-with-margin + $post-2col-nav-block-max-width * 2 + 5rem
+  $base-width-with-margin + $post-2col-nav-block-max-width * 2
 ) {
   @include media--classic-main-content-post_2col_narrow();
 }
 @include screen-w(
   "more",
-  $base-width-with-margin + $post-2col-nav-block-max-width * 2 + 5rem
+  $base-width-with-margin + $post-2col-nav-block-max-width * 2
 ) {
   @include media--classic-main-content-post_2col_wide();
 }
