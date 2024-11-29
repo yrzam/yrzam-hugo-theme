@@ -1,0 +1,45 @@
+@mixin screen-w($mode, $rem1, $rem2: "") {
+  @if $mode== "less" {
+    @media screen and(max-width: ($rem1 / 1rem * $font-size-base-px - 0.02px)) {
+      @content;
+    }
+  }
+  @if $mode== "more" {
+    @media screen and(min-width: ($rem1 / 1rem * $font-size-base-px)) {
+      @content;
+    }
+  }
+  @if $mode== "between" {
+    @media screen and(min-width: ($rem1 / 1rem * $font-size-base-px)) and (max-width: ($rem2 / 1rem * $font-size-base-px - 0.02px)) {
+      @content;
+    }
+  }
+}
+$width-base-with-margin: $width-base + $margin-base-x * 2;
+$post-2col-nav-block-max-width: 20.5rem + 1rem * 2;
+@include screen-w("less", 35rem + $margin-base-x * 2) {
+  @include media--home-content-about_vert_top();
+}
+@include screen-w("more", 35rem + $margin-base-x * 2) {
+  @include media--home-content-about_vert_middle();
+}
+@include screen-w("less", $width-base-with-margin + 5rem) {
+  @include media--classic-main-content-post_1col();
+}
+@include screen-w("more", $width-base-with-margin + 5rem) {
+  @include media--classic-main-content-post_2col();
+  @include media--home-content-about_vert_middle_wide();
+}
+@include screen-w(
+  "between",
+  $width-base-with-margin + 5rem,
+  $width-base-with-margin + $post-2col-nav-block-max-width * 2
+) {
+  @include media--classic-main-content-post_2col_narrow();
+}
+@include screen-w(
+  "more",
+  $width-base-with-margin + $post-2col-nav-block-max-width * 2
+) {
+  @include media--classic-main-content-post_2col_wide();
+}

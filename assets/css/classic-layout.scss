@@ -8,17 +8,17 @@
   height: 100%;
   header,
   footer {
-    padding: $base-margin-y $base-margin-x;
+    padding: $margin-base-y $margin-base-x;
     .content {
-      max-width: $base-width;
+      max-width: $width-base;
       margin: 0 auto;
     }
   }
   header {
     background: linear-gradient(
       135deg,
-      $bg-accent-color-light 0%,
-      $bg-accent-color-dark 100%
+      $color-bg-accent-light 0%,
+      $color-bg-accent-dark 100%
     );
     box-shadow: 0 0 0.25rem rgba(0,0,0,0.5);
     .content {
@@ -40,10 +40,10 @@
 
 /* section specific - list of classic */
 .classic-layout-container main .content.list {
-  padding: $base-margin-y $base-margin-x;
+  padding: $margin-base-y $margin-base-x;
   .main-container {
     .list-container {
-      max-width: $base-width;
+      max-width: $width-base;
       margin: 0 auto;
       ul {
         padding-left: 1rem;
@@ -59,7 +59,7 @@
             line-height: 1.5;
             .summary,
             .pub-date {
-              color: $fg-color-dark;
+              color: $color-fg-dark;
             }
             .title {
               font-weight: bold;
@@ -69,7 +69,7 @@
       }
     }
     .paginator {
-      margin: $base-margin-y 0 0 0;
+      margin: $margin-base-y 0 0 0;
     }
   }
 }
@@ -77,7 +77,7 @@
 /* section specific - single of classic */
 .classic-layout-container header .content.post {
   .pub-date {
-    color: $fg-color-semitransp;
+    color: $color-fg-op-m;
     margin: 1em 0;
   }
 }
@@ -85,7 +85,7 @@
   .nav-block {
     .toc-title {
       text-align: center;
-      margin-top: $base-margin-y;
+      margin-top: $margin-base-y;
     }
     nav {
       overflow-wrap: break-word;
@@ -96,7 +96,7 @@
     }
   }
   .main-container {
-    margin: $base-margin-y $base-margin-x;
+    margin: $margin-base-y $margin-base-x;
   }
 }
 @mixin media--classic-main-content-post_1col {
@@ -104,13 +104,13 @@
     .nav-block {
       nav {
         max-height: 50vh;
-        background-color: $bg-accent-color-dark;
-        padding: $base-margin-y $base-margin-x;
-        border: 2px solid $bg-accent-color-light;
+        background-color: $color-bg-accent-dark;
+        padding: $margin-base-y $margin-base-x;
+        border: 2px solid $color-bg-accent-light;
       }
     }
     .main-container {
-      margin: $base-margin-y * 2 $base-margin-x $base-margin-y $base-margin-x;
+      margin: $margin-base-y * 2 $margin-base-x $margin-base-y $margin-base-x;
     }
   }
 }
@@ -120,7 +120,7 @@
     .aside-container {
       display: flex;
       .nav-block {
-        margin: $base-margin-y $base-margin-x 0 $base-margin-x;
+        margin: $margin-base-y $margin-base-x 0 $margin-base-x;
         max-width: 20.5rem;
         min-width: 0;
         nav {
@@ -131,22 +131,22 @@
           scrollbar-width: thin;
           &,
           a {
-            color: $fg-color-dark;
+            color: $color-fg-dark;
           }
           a:hover {
-            color: $fg-color;
+            color: $color-fg;
           }
         }
         scrollbar-color: transparent transparent;
         &:hover {
-          scrollbar-color: rgba($fg-color-dark, 0.6) transparent;
+          scrollbar-color: rgba($color-fg-dark, 0.6) transparent;
         }
       }
     }
     .main-container {
-      margin: $base-margin-y $base-margin-x;
+      margin: $margin-base-y $margin-base-x;
       article {
-        max-width: $base-width;
+        max-width: $width-base;
         margin: 0 auto;
       }
     }
@@ -156,7 +156,7 @@
   .classic-layout-container main .content.post {
     .aside-container {
       min-width: 0;
-      flex: 0 1 auto;
+      flex: 0 1.5 auto;
     }
     .main-container {
       min-width: 0;
@@ -177,7 +177,7 @@
     }
     .main-container {
       min-width: 0;
-      flex: 0 1 $base-width;
+      flex: 0 1 $width-base;
     }
   }
 }

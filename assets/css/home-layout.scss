@@ -7,16 +7,16 @@
     .about-container {
       background: linear-gradient(
         135deg,
-        $bg-accent-color-light 0%,
-        $bg-accent-color-dark 100%
+        $color-bg-accent-light 0%,
+        $color-bg-accent-dark 100%
       );
       box-shadow: 0 0 0.25rem rgba(0,0,0,0.5);
-      padding: $base-margin-y $base-margin-x;
+      padding: $margin-base-y $margin-base-x;
     }
     .bottom-container {
-      margin: $base-margin-y $base-margin-x;
+      margin: $margin-base-y $margin-base-x;
       .bottom-block {
-        max-width: $base-width;
+        max-width: $width-base;
         margin: 0 auto;
         text-align: center;
       }
@@ -25,14 +25,14 @@
 }
 
 .home-layout-container .content.home .about-block {
-  max-width: $base-width;
+  max-width: $width-base;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row-reverse;
   align-items: center;
   justify-content: center;
-  gap: $base-margin-y $base-margin-x;
+  gap: $margin-base-y $margin-base-x;
   .info-container {
     flex: 1;
     h1 {
@@ -47,13 +47,13 @@
       .icon {
         height: 1.5rem;
         width: 1.5rem;
-        color: $fg-color-semitransp;
+        color: $color-fg-op-m;
         &:hover {
-          color: $fg-accent-color;
+          color: $color-fg-accent;
         }
       }
       .text {
-        color: $fg-color-dark;
+        color: $color-fg-dark;
         margin-right: -0.2rem;
         .spaced {
           margin-right: 0.2rem;
@@ -67,9 +67,9 @@
       .icon {
         height: 2rem;
         width: 2rem;
-        color: $fg-color-semitransp;
+        color: $color-fg-op-m;
         &:hover {
-          color: $fg-accent-color;
+          color: $color-fg-accent;
         }
       }
     }
@@ -95,11 +95,11 @@
     text-decoration: none;
     box-shadow: 0 0 0.25rem rgba(0,0,0,0.5);
     &:hover {
-      border: 1px solid $fg-accent-color;
+      border: 1px solid $color-fg-accent;
     }
     display: block;
     flex: 1 0 30%;
-    border: 1px solid $fg-color-semitransp;
+    border: 1px solid $color-fg-op-m;
     border-radius: 1rem;
     text-align: center;
     padding: 1rem;
@@ -107,12 +107,12 @@
       height: 2.5rem;
       width: 2.5rem;
       vertical-align: middle;
-      color: $fg-color-semitransp;
+      color: $color-fg-op-m;
     }
     .label {
       font-size: 1.3rem;
       font-weight: bold;
-      color: $fg-color-dark;
+      color: $color-fg-dark;
       vertical-align: middle;
       margin: 0 0 0 0.75rem;
     }
@@ -120,8 +120,8 @@
 }
 
 .home-layout-container .content.home .notice {
-  margin: $base-margin-y 0 0 0;
-  color: $fg-color-semitransp;
+  margin: $margin-base-y 0 0 0;
+  color: $color-fg-op-m;
 }
 
 @mixin media--home-content-about_vert_top {
@@ -138,7 +138,7 @@
   .home-layout-container {
     .content.home {
       .about-container {
-        padding: $base-margin-y * 2 $base-margin-x;
+        padding: $margin-base-y * 2 $margin-base-x;
       }
     }
   }
