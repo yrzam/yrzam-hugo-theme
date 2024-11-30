@@ -6,7 +6,6 @@ $font-size-base-px: 16px;
 $color-fg-op-m: rgba($color-fg, $opacity-mid);
 $color-fg-accent-op-m: rgba($color-fg-accent, $opacity-mid);
 $color-fg-accent-op-l: rgba($color-fg-accent, $opacity-low);
-$color-bg-accent-light-op-m: rgba($color-bg-accent-light, $opacity-mid);
 
 /* If style is modified in a certain context, other uses must not inherit from user agent stylesheet */
 
@@ -105,7 +104,7 @@ article {
     overflow-x: auto;
     padding: 1rem;
     font-size: 0.875rem;
-    border: 1px solid $color-bg-accent-light-op-m;
+    border: 1px solid $color-bg-accent-light;
     margin: 1em 0;
     scrollbar-color: $color-fg-accent-op-l transparent;
     &:hover {
@@ -119,7 +118,7 @@ article {
     background: $color-bg-accent-dark;
     padding: 0.1rem 0.25rem;
     font-size: 0.875rem;
-    border: 1px solid $color-bg-accent-light-op-m;
+    border: 1px solid $color-bg-accent-light;
     border-radius: 0.25rem;
   }
   p img,
