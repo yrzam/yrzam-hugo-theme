@@ -2,6 +2,7 @@
   <div class="content">
     {{ partial "page_path.html" . }}
     {{ if .Title }}<h1>{{ .Title }}</h1>{{ end }}
+    {{ if .Description }}<p>{{ .Description }}</p>{{ end }}
     {{ partial "taxo_of_list.html" . }}
   </div>
 {{- end -}}
