@@ -14,7 +14,7 @@ $color-fg-accent-op-l: rgba($color-fg-accent, $opacity-low);
   box-sizing: border-box;
 }
 /* prettier-ignore */
-html,body,ul,ol,li,blockquote,pre,hr {
+html,body,ul,ol,li,blockquote,pre,hr,figure,figcaption {
   margin: 0;
   padding: 0;
 }
@@ -121,10 +121,27 @@ article {
     border: 1px solid $color-bg-accent-light;
     border-radius: 0.25rem;
   }
-  p img,
-  li img {
-    width: 100%;
-    border: 1px solid $color-bg-accent-light;
+  figure {
+    margin: 1em 0;
+    img {
+      object-fit: contain;
+      display: block;
+      width: 100%;
+      max-height: 30rem;
+      border: 1px solid $color-bg-accent-light;
+    }
+    figcaption {
+      text-align: center;
+      color: $color-fg-dark;
+      font-size: 0.875rem;
+      margin-top: 0.2rem;
+      line-height: 1.5;
+    }
+    &:hover {
+      figcaption {
+        color: $color-fg;
+      }
+    }
   }
   blockquote {
     border-left: 0.5rem solid $color-bg-accent-light;

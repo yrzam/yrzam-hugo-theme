@@ -4,10 +4,12 @@
       <div class="about-container">
         <div class="about-block">
           <div class="image-container">
-            <img
-              src="{{ .Params.image.link }}"
-              {{ print "style" "=" "\"" "aspect-ratio:" .Params.image.ratio "\""  | safeHTMLAttr }}
+            {{ with resources.Get .Params.image | fingerprint }}
+		<img
+              src="{{ .RelPermalink }}"
+              {{ print "style" "=" "\"" "aspect-ratio:" (print .Width "/" .Height) "\""  | safeHTMLAttr }}
             />
+            {{ end }}
           </div>
           <div class="info-container">
             <h1>{{ .Title }}</h1>
@@ -22,7 +24,7 @@
             </div>
             <div class="links">
               {{- range .Params.links -}}
-                <a href="{{ .link | safeURL }}" class="icon-a-wrapper">{{- partial "icon.html" .icon -}}{{- print "" -}}</a>
+                <a href="{{ .url | safeURL }}" class="icon-a-wrapper" target="_blank">{{- partial "icon.html" .icon -}}{{- print "" -}}</a>
               {{- end -}}
             </div>
           </div>

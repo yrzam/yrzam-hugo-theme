@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- prettier-ignore -->
     <title>{{ if not .IsHome }}{{ .LinkTitle | humanize }} - {{ end }}{{ .Site.Title }}</title>
-    {{ $opts := dict "transpiler" "libsass" "targetPath" "style.css" }}
+    {{ $opts := dict "transpiler" "libsass" "targetPath" "_style._c.css" }}
     {{ with resources.Get "css/index.scss" | toCSS $opts | minify | fingerprint }}
       <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" />
     {{ end }}
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    {{ range resources.Match "favicon/*.png" }}
+      {{ with resources.Copy (printf "_favicon%d._c.png" .Width) . }}
+        <link rel="shortcut icon" type="image/png" sizes="{{ .Width }}x{{ .Height }}" href="{{ .RelPermalink }}">
+      {{ end }}
+    {{ end }}
     {{ with .OutputFormats.Get "rss" -}}
       {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
     {{ end }}

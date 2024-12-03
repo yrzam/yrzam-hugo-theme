@@ -2,20 +2,21 @@
 linkTitle: home
 title:
 description:
-image:
-  link:
-  ratio: 1/1 # x/y
+image: # localpath from assets/
 pgp:
-  fingerprint:
-  link:
+  fingerprint: # space-separated
+  link: # localpath from static/
 links:
-  - link:
-    icon:
+  - url:
+    icon: # localpath from assets/icons/ w/o ext
   # ...
 sections:
   - name:
-    link:
-    icon:
+    link: # /<section>/
+    icon: # localpath from assets/icons/ w/o ext
   # ...
 notice:
+
+# generator settings, no need to edit
+cascade: [ build: { publishResources: false } ]
 ---

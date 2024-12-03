@@ -13,7 +13,8 @@ params:
   dateFormat: "2006-01-02T15:04:05Z"
   dateFormatShort: "2006-01-02"
   paginationAdjacentLinks: 2
-paginate: 50
+pagination:
+  pagerSize: 50
 
 # GENERATOR SETTINGS
 capitalizeListTitles: false
@@ -29,3 +30,7 @@ outputFormats:
     baseName: rss
 minify:
   minifyOutput: true
+markup:
+  goldmark:
+    parser:
+      wrapStandAloneImageWithinParagraph: false
