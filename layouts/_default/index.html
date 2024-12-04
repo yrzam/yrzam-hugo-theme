@@ -4,7 +4,7 @@
       <div class="about-container">
         <div class="about-block">
           <div class="image-container">
-            {{ with resources.Get .Params.image | fingerprint }}
+            {{ with resources.Get .Params.image | resources.Copy (print "_profile" (path.Ext .Params.image)) | fingerprint }}
 		<img
               src="{{ .RelPermalink }}"
               {{ print "style" "=" "\"" "aspect-ratio:" (print .Width "/" .Height) "\""  | safeHTMLAttr }}

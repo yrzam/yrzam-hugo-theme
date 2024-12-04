@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- prettier-ignore -->
     <title>{{ if not .IsHome }}{{ .LinkTitle | humanize }} - {{ end }}{{ .Site.Title }}</title>
-    {{ $opts := dict "transpiler" "libsass" "targetPath" "_style._c.css" }}
+    {{ $opts := dict "transpiler" "libsass" "targetPath" "_style.css" }}
     {{ with resources.Get "css/index.scss" | toCSS $opts | minify | fingerprint }}
       <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" />
     {{ end }}
     {{ range resources.Match "favicon/*.png" }}
-      {{ with resources.Copy (printf "_favicon%d._c.png" .Width) . }}
+      {{ with resources.Copy (printf "_fav%d.png" .Width) . }}
         <link rel="shortcut icon" type="image/png" sizes="{{ .Width }}x{{ .Height }}" href="{{ .RelPermalink }}">
       {{ end }}
     {{ end }}
