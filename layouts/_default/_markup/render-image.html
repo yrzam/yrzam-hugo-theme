@@ -1,7 +1,6 @@
-{{ $hook_ctx := . }}
 {{ with .Page.Resources.Get .Destination | resources.Copy (replaceRE "([^/]*)$" "_$1" (path.Join .Page.Path .Destination)) | fingerprint }}
 <figure>
   <a href="{{ .RelPermalink }}"><img src="{{ .RelPermalink }}"></a>
-  {{- with $hook_ctx.Text }}<figcaption>{{ . }}</figcaption>{{ end -}}
+  {{- with $.Text }}<figcaption>{{ . }}</figcaption>{{ end -}}
 </figure>
 {{ end }}

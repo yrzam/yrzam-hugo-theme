@@ -15,6 +15,7 @@ sections:
     link: # /<section>/
     icon: # localpath from assets/icons/ w/o ext
   # ...
+vaultPageLink: # /<somename.md>/
 notice:
 
 # generator settings, no need to edit

@@ -4,10 +4,12 @@
     {{ if .Title }}<h1>{{ .Title }}</h1>{{ end }}
     {{ if .Description }}<p>{{ .Description }}</p>{{ end }}
     {{ partial "taxo_of_single.html" . }}
+    {{ if .Lastmod }}
     <div class="pub-date">
       mtime={{ .Lastmod.Format .Site.Params.dateFormat }}
       archived={{ default false .Params.archived }}
     </div>
+    {{ end }}
   </div>
 {{- end -}}
 
@@ -30,8 +32,11 @@
 {{- end -}}
 
 {{- define "footer" -}}
-  <!--div class="content post">
-    <a href="">download</a> |
-    <a href="{{ relURL "/verification/" }}">verify</a>
-  </div-->
+  <div class="content post">
+    {{ with .Site.GetPage .Site.Home.Params.vaultPageLink}}
+      {{ if not (.Eq $.Page) }}
+        <a href="{{ .RelPermalink }}">save or verify</a>
+      {{ end }}
+    {{ end }}
+  </div>
 {{- end -}}
