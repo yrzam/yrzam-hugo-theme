@@ -1,10 +1,8 @@
 #!/bin/sh
 set -e
+
 cd "$(dirname "$0")/.."
-if [ ! -f "../../themes/yrzam/init/import-environment.sh" ]; then
-	echo "Wrong path" >&2
-	exit 1;
-fi
+[ -d ./themes/yrzam ] && cd ./themes/yrzam
 
 VARS=$(printenv | \
 	grep -E 'THEME_.*' | \
