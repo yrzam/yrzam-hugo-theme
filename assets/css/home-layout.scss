@@ -91,30 +91,27 @@
   flex-wrap: wrap;
   gap: 0.5rem;
   .section-item {
+    flex: 1;
     white-space: nowrap;
     text-decoration: none;
     box-shadow: 0 0 0.25rem rgba(0,0,0,0.5);
+    border-radius: 1rem;
+    border: 1px solid $color-fg-op-m;
     &:hover {
       border: 1px solid $color-fg-accent;
     }
-    display: block;
-    flex: 1 0 30%;
-    border: 1px solid $color-fg-op-m;
-    border-radius: 1rem;
-    text-align: center;
-    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     .icon {
       height: 2.5rem;
       width: 2.5rem;
-      vertical-align: middle;
       color: $color-fg-op-m;
     }
     .label {
       font-size: 1.3rem;
       font-weight: bold;
       color: $color-fg-dark;
-      vertical-align: middle;
-      margin: 0 0 0 0.75rem;
     }
   }
 }
@@ -133,6 +130,18 @@
       flex-basis: 100%;
     }
   }
+  .home-layout-container .content.home .section-list {
+    .section-item {
+      flex-wrap: wrap;
+      padding: 0.75rem;
+      .icon {
+        flex-basis: 100%;
+      }
+      .label {
+        margin: 0.25rem 0 0 0;
+      }
+    }
+  }
 }
 @mixin media--home-content-about_vert_middle {
   .home-layout-container {
@@ -143,8 +152,12 @@
     }
   }
   .home-layout-container .content.home .section-list {
-    .section-item .label {
-      font-size: 1.6rem;
+    .section-item {
+      padding: 1rem;
+      .label {
+        margin: 0 0 0 0.75rem;
+        font-size: 1.6rem;
+      }
     }
   }
 }
