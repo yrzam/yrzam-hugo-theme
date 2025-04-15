@@ -1,4 +1,12 @@
-@import "variables.scss";
+$color-fg: #{{ .Site.Data.theme.color.fg }};
+$color-fg-dark: #{{ .Site.Data.theme.color.fg_dark }};
+$color-fg-accent: #{{ .Site.Data.theme.color.fg_accent }};
+$color-bg: #{{ .Site.Data.theme.color.bg }};
+$color-bg-accent-light: #{{ .Site.Data.theme.color.bg_accent_light }};
+$color-bg-accent-dark: #{{ .Site.Data.theme.color.bg_accent_dark }};
+$opacity-low: {{ .Site.Data.theme.opacity.low }};
+$opacity-mid: {{ .Site.Data.theme.opacity.med }};
+
 @import "basic.scss";
 @import "classic-layout.scss";
 @import "home-layout.scss";
