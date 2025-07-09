@@ -8,6 +8,7 @@
     <div class="pub-date">
       mtime={{ .Lastmod.Format .Site.Params.dateFormat }}
       archived={{ default false .Params.archived }}
+      words={{ .WordCount }}
     </div>
     {{ end }}
   </div>
