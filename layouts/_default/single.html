@@ -5,8 +5,8 @@
     {{ if .Description }}<p>{{ .Description }}</p>{{ end }}
     {{ partial "taxo_of_single.html" . }}
     {{ if .Lastmod }}
-    <div class="pub-date">
-      mtime={{ .Lastmod.Format .Site.Params.dateFormat }}
+    <div class="status">
+      <span class="mtime">mtime={{ .Lastmod.Format .Site.Params.dateFormat }}</span>
       archived={{ default false .Params.archived }}
       words={{ .WordCount }}
     </div>
